@@ -30,6 +30,9 @@ module.exports = class FirstMessagePlugin {
             if (content.startsWith((this.commandNamePrefix + this.commandName).toLowerCase())) {
                 const tellTheUser = x => sendMessage.sendBotMessage(channelId, x.toString());
                 const rawOptions = content.slice((this.commandNamePrefix + this.commandName).length + 1);
+                /**
+                 * @type {Object.<string, string>}
+                 */
                 const parsedOptions = {};
                 if (rawOptions.length > 0) {
                     // rawOptions.split(" ").map(x => x.split(":")).forEach(x => parsedOptions[x[0]] = x[1]);
