@@ -4,6 +4,7 @@
  * @author Davilarek
  * @description Port of Aliucord plugin
 */
+/* global BdApi */
 module.exports = class FirstMessagePlugin {
     constructor() {
         this.commandName = "FirstMessage";
@@ -27,7 +28,6 @@ module.exports = class FirstMessagePlugin {
              */
             const { content } = message;
             if (content.startsWith((this.commandNamePrefix + this.commandName).toLowerCase())) {
-                debugger;
                 const tellTheUser = x => sendMessage.sendBotMessage(channelId, x.toString());
                 const rawOptions = content.slice((this.commandNamePrefix + this.commandName).length + 1);
                 const parsedOptions = {};
@@ -61,8 +61,8 @@ module.exports = class FirstMessagePlugin {
     // };
     /**
      * @param {Object} options
-     * @param {string} options.user 
-     * @param {string} options.channel 
+     * @param {string} options.user
+     * @param {string} options.channel
      */
     async processAction(options) {
         const { channel, user } = options;
@@ -151,7 +151,7 @@ module.exports = class FirstMessagePlugin {
         const { body, ok } = await this.RestAPI.get({
             url: "/" + type + "s/" + (channelOrGuildId.guildId ? channelOrGuildId.guildId : channelOrGuildId.channelId) + "/messages/search",
             query,
-            oldFormErrors: true
+            oldFormErrors: true,
         });
         if (ok) {
             if (channelOrGuildId.guildId == null)
@@ -162,4 +162,4 @@ module.exports = class FirstMessagePlugin {
         else
             return null;
     }
-}
+};
