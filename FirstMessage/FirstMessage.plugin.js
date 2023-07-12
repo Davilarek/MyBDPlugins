@@ -50,15 +50,6 @@ module.exports = class FirstMessagePlugin {
     stop() {
         this.patch();
     }
-    // /**
-    //  * @type {Function}
-    //  */
-    // get getChannelById() {
-    //     return BdApi.Webpack.getModule(x => x.getChannel && x.getDMUserIds).getChannel;
-    // };
-    // get getCurrentChannelId() {
-    //     return BdApi.Webpack.getModule(x => x.getChannelId && x.getCurrentlySelectedChannelId).getCurrentlySelectedChannelId;
-    // };
     /**
      * @param {Object} options
      * @param {string} options.user
